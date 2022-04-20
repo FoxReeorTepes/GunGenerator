@@ -1,0 +1,143 @@
+<html>
+<head>
+	<title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="files/js/script.js"></script>
+    <link rel="stylesheet" href="Theme.css">
+
+</head>
+<body>
+<div class="Title">
+    <h1>Minecraft 1.12.2 Gun Generator</h1>
+    <h2>(MrCrayfish Gun Mod)</h2>
+</div>
+    <BODY BGCOLOR="#2b2b2b"></BODY>
+<div class="container">
+<div class="whole">
+    <label class="item">
+        <span>Selected gun:</span>
+        <select id="item" onchange="gen();">
+                <option value="rifle">Rifle</option>
+                <option value="assault_rifle">Assault Rifle</option>
+                <option value="shotgun">Shotgun</option>
+                <option value="handgun">Pistol</option>
+                <option value="machine_pistol">Machine Pistol</option>
+                <option value="chain_gun">Minigun</option>
+                <option value="bazooka">Bazooka</option>
+                <option value="grenade_launcher">Grenade Launcher</option>
+        </select>
+    </label><br>
+
+    <label class="form-controll"><input onclick="gen()" id="attachments" type="checkbox"><span>Attachments</span></label><br>
+    <div id="attachmentsInput" style="display: none;">
+        <label>
+            <select id="scopes" onchange="gen();">
+                    <option value='Nope'>Do Not Add Scope</option>
+                    <option value='scope:{id:"cgm:scope",Count:1b,Damage:0s'>Short</option>
+                    <option value='scope:{id:"cgm:scope",Count:1b,Damage:1s'>Medium</option>
+                    <option value='scope:{id:"cgm:scope",Count:1b,Damage:2s'>Long</option>
+            </select>
+        </label><br>
+        <label class="form-controll"><input onclick="gen()" id="scopeColor" type="checkbox"><span>Custom Scope Color</span></label><br>
+        <div id="scopeColorChoiceInput" style="display: none;">
+            <input onchange="gen()" type="color" id="scopeColorChoice"></input>
+        </div>
+        <label class="form-controll"><input onclick="gen()" id="barrel" type="checkbox"><span>Silencer</span></label><br>
+        <label class="form-controll"><input onclick="gen()" id="barrelColor" type="checkbox"><span>Custom Silencer Color</span></label><br>
+        <div id="barrelColorChoiceInput" style="display: none;">
+            <input onchange="gen()" type="color" id="barrelColorChoice"></input>
+        </div>
+    </div>
+
+    <div class="colourGun">
+        <label class="form-controll"><input onclick="gen()" id="colorGun" type="checkbox"><span>Custom Gun Color</span><br>    
+    </div>
+    <div class="colourGun" id="colorGunInput" style="display: none;">
+        <input onchange="gen()" type="color" id="colorGunChoice"></input>
+    </div></label>
+
+	<label class="form-controll"><input onclick="gen()" id="ignoreammo" type="checkbox"><span>Infinite Ammo</span></label><br>
+    <label class="form-controll"><input onclick="gen()" id="adDamage" type="checkbox"><span>Plus/Minus Damage</span></label><br>
+    <div id="adDamageInput" style="display:none;">
+        <input type="number" oninput="gen()" id="adDamageText"></input>
+    </div>
+    <label class="form-controll"><input onclick="gen()" id="ammoCount" type="checkbox"><span>Ammo in Gun (breaks durability bar)</span></label><br>
+    <div id="ammoCountInput" style="display:none;">
+        <input type="number" oninput="gen()" id="ammoCountText"></input>
+    </div>
+    <label class="form-controll" id="gunS"><input onclick="gen()" id="gun" type="checkbox"><span>Extra Settings</span></label><br>
+        <div id="gunGroup">
+        <label class="form-controll" id="generalS" style="color:gray;"><input onclick="gen()" id="general" type="checkbox"><span>General</span></label><br>
+            <div id="generalGroup" style="color:gray;">
+            <label class="form-controll"><input onclick="gen()" id="rate" type="checkbox"><span>Rate</span></label><br>
+            <div id="rateInput" style="display: none;">
+                <input type="number" oninput="gen()" id="rateText"></input>
+            </div>
+            <label class="form-controll"><input onclick="gen()" id="auto" type="checkbox"><span>Auto</span></label><br>
+            <label class="form-controll"><input onclick="gen()" id="alwaysSpread" type="checkbox"><span>Do not Spread Always</span></label><br>
+            <label class="form-controll"><input onclick="gen()" id="spread" type="checkbox"><span>Spread</span></label><br>
+            <div id="spreadInput" style="display:none;">
+                <input type="number" oninput="gen()" id="spreadText"></input>
+            </div>
+            <label class="form-controll"><input onclick="gen()" id="maxAmmo" type="checkbox"><span>max Ammo (breaks durability bar)</span></label><br>
+            <div id="maxAmmoInput" style="display:none;">
+                <input type="number" oninput="gen()" id="maxAmmoText"></input>
+            </div>
+            <label class="form-controll"><input onclick="gen()" id="projectileAmount" type="checkbox"><span>Projectile per shot</span></label><br>
+            <div id="projectileAmountInput" style="display:none;">
+                <input type="number" oninput="gen()" id="projectileAmountText"></input>
+            </div>
+            <label class="form-controll"><input onclick="gen()" id="reloadSpeed" type="checkbox"><span>Bullet per Reload Animation</span></label><br>
+            <div id="reloadSpeedInput" style="display:none;">
+                <input type="number" oninput="gen()" id="reloadSpeedText"></input>
+            </div>
+    </div>
+        <label class="form-controll" id="projectileS" style="color:gray;"><input onclick="gen()" id="projectile" type="checkbox"><span>Projectile</span></label><br>
+    <div id="projectileGroup" style="color:gray;">
+        <label>
+            <select id="gunProjectile" onchange="gen();">
+                    <option value='Nope' id="NoChange">Do Not Change</option>
+                    <option value='item:"cgm:basic_ammo"' id="BasAm">Basic Ammo</option>
+                    <option value='item:"cgm:advanced_ammo"' id="AdvAm">Advanced Ammo</option>
+                    <option value='item:"cgm:shell"' id="ShellAm">Shell</option>
+                    <option value='item:"cgm:missile"' id="MisAm">Missile</option>
+                    <option value='item:"cgm:grenade"' id="GreAm">Grenade</option>
+                    <option value='item:"cgm:stun_grenade"' id="StuAm">Stun Grenade</option>
+            </select>
+            <label>Ammo Type</label>
+        </label><br>
+
+        <label class="form-controll"><input onclick="gen()" id="gravity" type="checkbox"><span>Gravity</span></label><br>
+        <label class="form-controll"><input onclick="gen()" id="visible" type="checkbox"><span>Invisible Projectile</span></label><br>
+        <label class="form-controll"><input onclick="gen()" id="damage" type="checkbox"><span>Base Damage</span></label><br>
+        <div id="damageInput" style="display:none;">
+            <input type="number" oninput="gen()" id="damageText"></input>
+        </div>
+        <label class="form-controll"><input onclick="gen()" id="speed" type="checkbox"><span>Projectile speed</span></label><br>
+        <div id="speedInput" style="display:none;">
+            <input type="number" oninput="gen()" id="speedText"></input>
+        </div>
+        <label class="form-controll"><input onclick="gen()" id="life" type="checkbox"><span>Projectile life</span><br><span>(Maximum Tick until the projectile disappears)</span></label><br>
+        <div id="lifeInput" style="display:none;">
+            <input type="number" oninput="gen()" id="lifeText"></input>
+        </div>
+        <label class="form-controll"><input onclick="gen()" id="damageReduceOverLife" type="checkbox"><span>Reduce damage by 100%</span><br><span>at the end of the projectiles maximum life</span></label><br>
+        <label class="form-controll"><input onclick="gen()" id="damageReduceIfNotZoomed" type="checkbox"><span>Reduce damage when not zoomed</span></label><br>
+        <label class="form-controll"><input onclick="gen()" id="trailColor" type="checkbox"><span>Custom Trail Color</span></label><br>
+        <div id="trailColorChoiceInput" style="display: none;">
+            <input onchange="gen()" type="color" id="trailColorChoice"></input>
+        </div>
+        <label class="form-controll"><input onclick="gen()" id="trailMult" type="checkbox"><span>Projectile Trail Le</span>ngth</label>
+        <div id="trailMultInput" style="display:none;">
+            <input type="number" oninput="gen()" id="trailMultText"></input>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="box1"></div>
+<div class="box2"></div>
+</div>
+<textarea type="text" id="command" class="command" readonly></textarea>
+</body>
+</html>

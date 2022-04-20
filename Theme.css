@@ -1,0 +1,120 @@
+.container {
+    display: grid;
+}
+.container {
+    display: grid;
+}
+.whole, .box, .command {
+    grid-area: 1 / 1;
+}
+input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+}
+.item{
+    position: relative;
+    left: 290px;
+    top: 0.5cm;
+}
+#projectileS{
+    display: block;
+    position:absolute;
+    z-index: 100;
+    left: 300px;
+    top: 415px;
+    font-size: larger;
+}
+#projectileGroup{
+    display: block;
+    position:absolute;
+    z-index: 100;
+    left: 300px;
+    top: 445px;
+}
+#generalS{
+    display: block;
+    position:absolute;
+    z-index: 100;
+    top: 415px;
+    font-size: larger;
+}
+#generalGroup{
+    display: block;
+    position:absolute;
+    z-index: 100;
+    top: 445px;
+}
+.whole {
+    height: auto;
+    position: relative;
+    left: calc(50% + -350px);
+    max-width: 1000px;
+    padding: 10px;
+    top: 85px;
+    z-index: 100;
+}
+.box1{
+    position: absolute;
+    width: 700px;
+    height: 350px;
+    left: calc(50% + -350px);
+    background: #474747;
+    top: 110px;
+    border-radius: 2mm;
+}
+.box2{
+    position: absolute;
+    width: 700px;
+    height: 440px;
+    left: calc(50% + -350px);
+    background: #474747;
+    top: 470px;
+    border-radius: 2mm;
+}
+#gunS{
+    position: absolute;
+    color: #ffffaf;
+    top: 385px;
+    font-size:x-large;
+}
+div{
+    color: #fffff9;
+    font-family: sans-serif;
+}
+
+#colorGunInput{
+    color:#88c36d;
+}
+.command{
+    box-sizing: border-box;
+    position: absolute;
+    font-size:larger;
+    left: calc(50% + -50px);
+    bottom: 240mm;
+    z-index: 20;
+    width: 10cm;
+    height: 8cm;
+    padding: 2mm;
+    border-style: dotted;
+    border-radius: 1mm;
+    background-color: #696969;
+    color: #fffff9;
+    resize: none;
+    top: 150px;
+}
+p{
+    color: #fffff9;
+}
+label{
+    font-family: sans-serif;
+}
+h1{
+    position: absolute;
+    top: -10px;
+    left: calc(50% + -225px);
+}
+h2{
+    position: absolute;
+    top: 35px;
+    left: calc(50% + -125px);
+}
