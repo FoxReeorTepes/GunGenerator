@@ -91,7 +91,7 @@ div{
     font-size:larger;
     left: calc(50% + -50px);
     bottom: 240mm;
-    z-index: 20;
+    z-index: 120;
     width: 10cm;
     height: 8cm;
     padding: 2mm;
